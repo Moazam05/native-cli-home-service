@@ -45,6 +45,7 @@ export default {
     offers: 'Offers',
     referFriend: 'Refer a Friend',
     support: 'Support',
+    policy: 'Privacy Policy',
     colorScheme: 'Color Scheme',
     languagePreference: 'Language Preference',
     light: 'Light',

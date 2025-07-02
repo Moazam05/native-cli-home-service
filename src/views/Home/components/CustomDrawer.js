@@ -104,7 +104,13 @@ const CustomDrawer = props => {
               key={index}
               style={styles.drawerItemWrapper}
               onPress={() => {
-                console.log(item.label.split('.')[1]);
+                // console.log(item.label.split('.')[1]);
+                if (item.label === 'drawer.policy') {
+                  props.navigation.navigate('WebViewScreen', {
+                    url: 'https://sites.google.com/view/zynix-apps/home',
+                    title: t('drawer.policy'),
+                  });
+                }
               }}>
               <CustomLabel
                 icon={item.icon}
