@@ -104,7 +104,13 @@ const CustomDrawer = props => {
               key={index}
               style={styles.drawerItemWrapper}
               onPress={() => {
-                console.log(item.label.split('.')[1]);
+                // console.log(item.label.split('.')[1]);
+                if (item.label === 'drawer.policy') {
+                  props.navigation.navigate('WebViewScreen', {
+                    url: 'https://sites.google.com/view/zynix-apps/home',
+                    title: t('drawer.policy'),
+                  });
+                }
               }}>
               <CustomLabel
                 icon={item.icon}
@@ -180,6 +186,20 @@ const CustomDrawer = props => {
               {t('drawer.dark')}
             </Text>
           </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            paddingTop: 6,
+            paddingHorizontal: 16,
+          }}>
+          <Text
+            style={{
+              color: 'rgba(255,255,255,0.8)',
+              fontSize: 12,
+              textAlign: isRTL ? 'right' : 'left',
+            }}>
+            {isRTL ? 'نسخة 1.0.0' : 'Version 1.0.0'}
+          </Text>
         </View>
       </View>
     </View>

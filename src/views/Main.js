@@ -1,6 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconTwo from 'react-native-vector-icons/Feather';
@@ -8,6 +9,7 @@ import IconTwo from 'react-native-vector-icons/Feather';
 import Home from './tabs/Home';
 import Profile from './tabs/Profile';
 import Bookings from './tabs/Bookings';
+import WebViewScreen from '../components/WebViewScreen'; // Import your WebViewScreen
 import Colors from '../constants/colors';
 import {useCustomTheme} from '../theme/Theme';
 import CustomDrawer from './Home/components/CustomDrawer';
@@ -16,6 +18,7 @@ import {selectLanguage} from '../redux/language/languageSlice';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator(); // Add Stack Navigator
 
 const ICON_SIZES = {
   home: 22,
@@ -115,7 +118,25 @@ const TabNavigator = () => {
   );
 };
 
-const Main = () => {
+// Create a Stack Navigator that includes both Drawer and WebView
+const MainStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+      <Stack.Screen
+        name="WebViewScreen"
+        component={WebViewScreen}
+        options={{
+          headerShown: true,
+          headerTitle: 'Privacy Policy',
+          headerBackTitleVisible: false,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const DrawerNavigator = () => {
   const currentLanguage = useTypedSelector(selectLanguage);
   const isRTLLanguage = currentLanguage === 'ar';
   const [isReady, setIsReady] = useState(true);
@@ -162,6 +183,11 @@ const Main = () => {
       />
     </Drawer.Navigator>
   );
+};
+
+// Export MainStack instead of Main
+const Main = () => {
+  return <MainStack />;
 };
 
 const styles = StyleSheet.create({

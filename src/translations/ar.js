@@ -44,6 +44,7 @@ export default {
     offers: 'العروض',
     referFriend: 'دعوة صديق',
     support: 'الدعم',
+    policy: 'سياسة الخصوصية',
     colorScheme: 'نظام الألوان',
     languagePreference: 'تفضيل اللغة',
     light: 'فاتح',

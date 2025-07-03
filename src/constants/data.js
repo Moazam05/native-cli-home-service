@@ -191,6 +191,13 @@ export const DRAWER_ITEMS = [
     },
     label: 'drawer.support',
   },
+  {
+    icon: {
+      type: 'MaterialIcons',
+      name: 'privacy-tip',
+    },
+    label: 'drawer.policy',
+  },
 ];
 
 export const subCategoryList = [
