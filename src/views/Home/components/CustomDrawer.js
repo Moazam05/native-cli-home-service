@@ -187,20 +187,6 @@ const CustomDrawer = props => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{
-            paddingTop: 6,
-            paddingHorizontal: 16,
-          }}>
-          <Text
-            style={{
-              color: 'rgba(255,255,255,0.8)',
-              fontSize: 12,
-              textAlign: isRTL ? 'right' : 'left',
-            }}>
-            {isRTL ? 'نسخة 1.0.0' : 'Version 1.0.0'}
-          </Text>
-        </View>
       </View>
     </View>
   );
